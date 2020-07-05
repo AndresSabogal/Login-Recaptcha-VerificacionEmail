@@ -28,7 +28,6 @@ Route::get('/expense_reports/{expense_report}/expenses/create','ExpenseControlle
 Route::post('/expense_reports/{expense_report}/expenses','ExpenseController@store');
 
 
+Auth::routes(['verify'=> true]);
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
